@@ -1,5 +1,20 @@
 const { Server } = require("http");
 const net = require("net");
+const client = require('./client');
+
+const setupInput = function () {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding("utf8");
+  stdin.resume();
+  return stdin;
+};
+
+stdin.on("data", handleUserInput);
+
+const handleUserInput = function (data) {
+  console.log(data);
+};
 
 // establishes a connection with the game server
 const connect = function () {
