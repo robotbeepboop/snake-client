@@ -3,6 +3,7 @@ const { stdin } = require("process");
 let connection;
 
 const setupInput = function () {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -27,6 +28,10 @@ const handleUserInput = function () {
     if (key === '\u0003') { //crtl + c input to quit game
       process.stdout.write('Thanks for playing!');
       process.exit();
+    }
+
+    if (key === 'm') {
+      connection.write('Say: And I would have gotten away with it too if it wasnt for you meddling kids!');
     }
 
     if (key === 'k') {
